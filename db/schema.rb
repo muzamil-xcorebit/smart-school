@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_24_053424) do
+ActiveRecord::Schema.define(version: 2022_06_24_135635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "child_pods", force: :cascade do |t|
+    t.string "status", default: "pending"
+    t.bigint "child_id", null: false
+    t.bigint "pod_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["child_id"], name: "index_child_pods_on_child_id"
+    t.index ["pod_id"], name: "index_child_pods_on_pod_id"
+  end
 
   create_table "children", force: :cascade do |t|
     t.string "name"
@@ -32,5 +42,14 @@ ActiveRecord::Schema.define(version: 2022_06_24_053424) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "pods", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "child_pods", "children"
+  add_foreign_key "child_pods", "pods"
   add_foreign_key "children", "parents"
 end
