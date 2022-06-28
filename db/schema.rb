@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_06_24_135635) do
   enable_extension "plpgsql"
 
   create_table "child_pods", force: :cascade do |t|
-    t.string "status", default: "pending"
+    t.integer "status", default: 1
     t.bigint "child_id", null: false
     t.bigint "pod_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2022_06_24_135635) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
   add_foreign_key "child_pods", "children"
   add_foreign_key "child_pods", "pods"
   add_foreign_key "children", "parents"
