@@ -4,6 +4,7 @@ class Child < ApplicationRecord
   has_many :child_pods
   has_many :pods, through: :child_pods
   has_one :picture, as: :imageable
+  has_one :address, as: :addressable
 
   validates :name, presence: true
 
