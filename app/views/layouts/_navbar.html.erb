@@ -5,5 +5,14 @@
       <%= link_to "Pods", root_path, class: 'navbar-brand' %>
 
     </div>
+    <ul class="nav navbar-nav navbar-right">
+     <% if !current_parent %>
+      <li><%= link_to "Sign Up", new_parent_registration_path %></li>
+      <li><%= link_to "Sign in", new_parent_session_path %></li>
+      <% else %>
+        <li><%= link_to "Edit My Profile", edit_parent_registration_path %></li>
+        <li><%= link_to "Sign Out", destroy_parent_session_path, method: :delete %></li>
+        <% end %>
+    </ul>
   </div>
 </nav>

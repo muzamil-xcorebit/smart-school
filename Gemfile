@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap-sass'
 gem 'sassc-rails'
 gem 'jquery-rails'
+gem 'devise'
 
 
 
