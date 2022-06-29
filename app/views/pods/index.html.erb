@@ -1,2 +1,14 @@
-<h1>Pods#index</h1>
-<p>Find me in app/views/pods/index.html.erb</p>
+<p style="color: green"><%= notice %></p>
+
+<h1>Pods</h1>
+
+<div id="pods">
+  <% @pods.each do |pod| %>
+    <%= render pod %>
+    <p>
+      <%= link_to "Show this Pod", pod %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New Pod", new_pod_path %>

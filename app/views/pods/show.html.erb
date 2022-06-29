@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pod %>
+
+<div>
+  <%= link_to "Edit this pod", edit_pod_path(@pod) %> |
+  <%= link_to "Back to pods", pods_path %>
+  <%= button_to "Destroy this pod", @pod, method: :delete %>
+</div>
