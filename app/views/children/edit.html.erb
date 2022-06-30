@@ -1,0 +1,10 @@
+<h1>Edit Child</h1>
+
+<%= render "editform", child: @child %>
+
+<br>
+
+<div>
+  <%= link_to "Show this Child", @child %> |
+  <%= link_to "Back to Children", parent_children_path([current_parent,@child]) %>
+</div>

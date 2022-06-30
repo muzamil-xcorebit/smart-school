@@ -10,6 +10,7 @@
       <li><%= link_to "Sign Up", new_parent_registration_path %></li>
       <li><%= link_to "Sign in", new_parent_session_path %></li>
       <% else %>
+        <li><%= link_to "Add Children", new_parent_child_path(current_parent.id) %></li>
         <li><%= link_to "Edit My Profile", edit_parent_registration_path %></li>
         <li><%= link_to "Sign Out", destroy_parent_session_path, method: :delete %></li>
         <% end %>

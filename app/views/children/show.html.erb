@@ -1,0 +1,8 @@
+<p style="color: green"><%= notice %></p>
+<%= render @child %>
+
+<div>
+  <%= link_to "Edit this child", edit_child_path %> |
+  <%= link_to "Back to children", parent_children_path([current_parent, @child]) %>
+  <%= button_to "Destroy this child", [@parent, @child], method: :delete %>
+</div>

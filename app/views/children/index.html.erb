@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Children</h1>
+
+<div id="pods">
+  <% @children.each do |child| %>
+    <%= render child %>
+    <p>
+      <%= link_to "Show this child", child %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New Child", new_parent_child_path %>
