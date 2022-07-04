@@ -13,6 +13,27 @@
     <strong>Picture:</strong> <br>
     <%= image_tag(@child.picture.image, size: '200x200')  if @child.picture.image.attached?  %>
   </p>
+  Address:
+  <p>
+    <strong>Street:</strong>
+    <%= @child.address.street %>
+  </p>
+    <p>
+    <strong>City:</strong>
+    <%= @child.address.city %>
+  </p>
+    <p>
+    <strong>State:</strong>
+    <%= @child.address.state %>
+  </p>
+    <p>
+    <strong>Zipcode:</strong>
+    <%= @child.address.zipcode %>
+  </p>
+    <p>
+    <strong>Country:</strong>
+    <%= @child.address.country %>
+  </p>
 
 <div>
   <%= link_to "Edit this child", edit_child_path %> |

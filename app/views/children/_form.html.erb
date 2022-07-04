@@ -8,12 +8,42 @@
     <%= form.label :Age%> <br>
     <%= form.text_field :age %>
   </div>
+  <br>
+  <p>
+    Address:
+  </p>
+  <div>
+    <%= form.fields_for :address do |f| %>
+  <div>
+    <%= f.label :Street%> <br>
+    <%= f.text_field :street %>
+  </div>
+    <div>
+    <%= f.label :City%> <br>
+    <%= f.text_field :city %>
+  </div>
+  <div>
+    <%= f.label :State%> <br>
+    <%= f.text_field :state %>
+  </div>
+  <div>
+    <%= f.label :Zipcode%> <br>
+    <%= f.text_field :zipcode %>
+  </div>
+  <div>
+    <%= f.label :Country%> <br>
+    <%= f.text_field :country %>
+  </div>
+    <% end %>
+  </div>
   <div class="field">
     <%= form.fields_for :picture do |f| %>
       <%= f.label :Picture %><br />
       <%= f.file_field :image %>
     <% end %>
-</div>
+  </div>
+
+<br>
 
   <div>
     <%= form.submit %>
