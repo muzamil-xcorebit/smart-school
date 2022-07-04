@@ -8,6 +8,12 @@
     <%= form.label :Age%> <br>
     <%= form.text_field :age %>
   </div>
+  <div class="field">
+    <%= form.fields_for :picture do |f| %>
+      <%= f.label :Picture %><br />
+      <%= f.file_field :image %>
+    <% end %>
+</div>
 
   <div>
     <%= form.submit %>

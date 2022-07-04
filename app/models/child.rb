@@ -5,6 +5,7 @@ class Child < ApplicationRecord
   has_many :pods, through: :child_pods
   has_one :picture, as: :imageable
   has_one :address, as: :addressable
+  accepts_nested_attributes_for :picture
 
   validates :name, presence: true
 

@@ -8,6 +8,21 @@
     <%= form.label :Age%> <br>
     <%= form.text_field :age %>
   </div>
+  <div class="field">
+    <%= form.fields_for :picture do |f| %>
+      <%= f.label :Picture %><br />
+      <%= f.file_field :image %>
+    <% end %>
+</div>
+<br>
+
+<% if child.picture.image.attached? %>
+Current Image &nbsp
+<%= image_tag(child.picture.image, size: '32x32') if child.picture.image.attached? %>
+<% end %>
+
+<br>
+<br>
 
   <div>
     <%= form.submit %>

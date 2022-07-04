@@ -8,6 +8,7 @@ class ChildrenController < ApplicationController
 
   def new
     @child = @parent.children.build
+    @child.build_picture
   end
 
   def show
@@ -49,7 +50,7 @@ class ChildrenController < ApplicationController
   end
 
   def child_params
-    params.require(:child).permit(:name, :age)
+    params.require(:child).permit(:name, :age, picture_attributes: [:id, :image])
   end
 
 end

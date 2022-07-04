@@ -1,5 +1,18 @@
 <p style="color: green"><%= notice %></p>
-<%= render @child %>
+  <p>
+    <strong>Name:</strong>
+    <%= @child.name %>
+  </p>
+
+  <p>
+    <strong>Age:</strong>
+    <%= @child.age %>
+  </p>
+
+  <p>
+    <strong>Picture:</strong> <br>
+    <%= image_tag(@child.picture.image, size: '200x200')  if @child.picture.image.attached?  %>
+  </p>
 
 <div>
   <%= link_to "Edit this child", edit_child_path %> |
