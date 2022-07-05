@@ -8,7 +8,11 @@ class Pod < ApplicationRecord
   accepts_nested_attributes_for :picture
   accepts_nested_attributes_for :address
 
-
   validates :name, :phone_number, presence: true
   validates :phone_number, uniqueness: true
+
+  enum status: { pending: 1,
+                 active: 2,
+                 rejected: 3,
+                 inactive: 4 }
 end
