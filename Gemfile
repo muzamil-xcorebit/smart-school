@@ -30,6 +30,8 @@ gem 'sassc-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'letter_opener', group: :development
+gem 'activeadmin'
+
 
 
 
