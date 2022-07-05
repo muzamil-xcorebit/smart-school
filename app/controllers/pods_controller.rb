@@ -7,6 +7,8 @@ class PodsController < ApplicationController
 
   def new
     @pod = Pod.new
+    @pod.build_picture
+    @pod.build_address
   end
 
   def show
@@ -44,7 +46,8 @@ class PodsController < ApplicationController
   end
 
   def pod_params
-    params.require(:pod).permit(:name, :phone_number)
+    params.require(:pod).permit(:name, :phone_number, picture_attributes: [:id, :image],
+      address_attributes:[:id, :street, :city, :state, :zipcode, :country])
   end
 
 end

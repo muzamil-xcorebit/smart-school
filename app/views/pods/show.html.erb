@@ -1,6 +1,40 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @pod %>
+  <p>
+    <strong>Name:</strong>
+    <%= @pod.name %>
+  </p>
+
+  <p>
+    <strong>Phone Number:</strong>
+    <%= @pod.phone_number %>
+  </p>
+  <p>
+    Address:
+  </p>
+  <p>
+    <strong>Street:</strong>
+    <%= @pod.address.street %>
+  </p>
+    <p>
+    <strong>City:</strong>
+    <%= @pod.address.city %>
+  </p>
+    <p>
+    <strong>State:</strong>
+    <%= @pod.address.state %>
+  </p>
+    <p>
+    <strong>Zipcode:</strong>
+    <%= @pod.address.zipcode %>
+  </p>
+    <p>
+    <strong>Country:</strong>
+    <%= @pod.address.country %>
+  </p>
+    <strong>Picture:</strong> <br>
+    <%= image_tag(@pod.picture.image, size: '200x200')  if @pod.picture.image.attached?  %>
+  </p>
 
 <div>
   <%= link_to "Edit this pod", edit_pod_path(@pod) %> |
