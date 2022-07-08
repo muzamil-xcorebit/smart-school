@@ -1,0 +1,20 @@
+<h1>Teachers</h1>
+<div>
+  <% @teachers.each do |t| %>
+    <p>
+      <strong>Name:</strong>
+      <%= t.name %>
+    </p>
+    <p>
+      <strong>Phone Number:</strong>
+      <%= t.phone_number %>
+    </p>
+    <p>
+      <strong>Picture:</strong>
+      <%= image_tag(t.picture.image, size: '32x32') if t.picture.image.attached? %>
+    </p>
+    <p>
+      <%= link_to "Show this Teacher", t %>
+    </p>
+  <% end %>
+</div>

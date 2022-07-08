@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :children, shallow: true
   end
   resources :child_pods
+  resources :teachers
   root 'pods#index'
 end

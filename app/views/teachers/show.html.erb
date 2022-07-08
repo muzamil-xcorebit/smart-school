@@ -1,0 +1,34 @@
+<p>
+  <strong>Name:</strong>
+  <%= @teacher.name %>
+</p>
+<p>
+  <strong>Phone Number:</strong>
+  <%= @teacher.phone_number %>
+</p>
+<p>
+  Address:
+</p>
+<p>
+  <strong>Street:</strong>
+  <%= @teacher.address.street %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @teacher.address.city %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%= @teacher.address.state %>
+</p>
+<p>
+  <strong>Zipcode:</strong>
+  <%= @teacher.address.zipcode %>
+</p>
+<p>
+  <strong>Country:</strong>
+  <%= @teacher.address.country %>
+</p>
+<strong>Picture:</strong> <br>
+<%= image_tag(@teacher.picture.image, size: '200x200')  if @teacher.picture.image.attached?  %>
+</p>
