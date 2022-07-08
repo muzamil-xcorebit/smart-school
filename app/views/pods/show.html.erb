@@ -39,6 +39,16 @@
     <strong>Picture:</strong> <br>
     <%= image_tag(@pod.picture.image, size: '200x200')  if @pod.picture.image.attached?  %>
   </p>
+
+    <strong>Students</strong><br>
+    <br>
+  <% @pod.children.each do |c| %>
+    <p>
+      <strong>Name:</strong>
+      <%= c.name %>
+    </p>
+  <% end %>
+
 <%= link_to "Apply" ,new_child_pod_path(id: @pod.id)  %>
 <div>
   <%= link_to "Edit this pod", edit_pod_path(@pod) %> |
