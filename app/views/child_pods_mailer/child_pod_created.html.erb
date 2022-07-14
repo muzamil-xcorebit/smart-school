@@ -1,0 +1,11 @@
+<%= @parent %>
+is requested to join this Pod
+<b><%= @pod.name %></b>
+<p>
+  <strong>His Child details</strong>
+  <% @children.each do |c|%>
+    <li><b><%= c.name %></b></li>
+<% end %>
+<br>
+<%= link_to "Click this link to check the status", admin_child_pods_url %>
+</p>
