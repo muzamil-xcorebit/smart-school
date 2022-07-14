@@ -42,12 +42,10 @@
 
     <strong>Students</strong><br>
     <br>
-  <% @pod.children.each do |c| %>
-    <p>
-      <strong>Name:</strong>
-      <%= c.name %>
-    </p>
-  <% end %>
+  <% @pod.child_pods.where(status: "active").each do |ac| %>
+  <strong>Name:</strong>
+  <%= ac.child.name %><br>
+  <% end %><br>
 
 <%= link_to "Apply" ,new_child_pod_path(id: @pod.id)  %>
 <div>
