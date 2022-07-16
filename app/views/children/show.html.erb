@@ -35,6 +35,42 @@
     <%= @child.address.country %>
   </p>
 
+<h3>
+  Child Pods History
+</h3>
+<br>
+
+  <p>
+    <strong>Active Pod</strong>
+    <br>
+    <strong>Name:</strong>
+    <%= @child.active_pods.name %>
+  </p>
+  <p>
+    <strong>Pending Pods</strong>
+    <br>
+    <% @child.child_pods.where(status: "pending").each do |pn| %>
+      <strong>Name:</strong>
+      <%= pn.pod.name %><br>
+    <% end %><br>
+  </p>
+  <p>
+    <strong>Rejected Pods</strong>
+    <br>
+    <% @child.child_pods.where(status: "rejected").each do |rj| %>
+      <strong>Name:</strong>
+      <%= rj.pod.name %><br>
+    <% end %><br>
+  </p>
+  <p>
+    <strong>Inactive Pods</strong>
+    <br>
+    <% @child.child_pods.where(status: "inactive").each do |ina| %>
+      <strong>Name:</strong>
+      <%= ina.pod.name %><br>
+    <% end %><br>
+  </p>
+
 <div>
   <%= link_to "Edit this child", edit_child_path %> |
   <%= link_to "Back to children", parent_children_path([current_parent, @child]) %>
