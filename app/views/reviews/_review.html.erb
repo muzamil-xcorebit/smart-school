@@ -1,0 +1,5 @@
+<P>
+  <%= review.review %>
+</P>
+<%= link_to "Edit", edit_pod_review_path(review.pod, review)%>
+<%= link_to "Delete", pod_review_path(review.pod, review), method: :delete, data: { confirm: "Are you sure?" } %>

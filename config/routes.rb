@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :parents, controllers: { confirmations: 'parents/confirmations' }
-  resources :pods
+  resources :pods do
+    resources :reviews
+  end
   resources :parents do
     resources :children, shallow: true
   end

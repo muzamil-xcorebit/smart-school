@@ -1,0 +1,4 @@
+<%= form_for([@pod, @pod.reviews.build]) do |f| %>
+  <%= f.text_field :review %>
+  <%= f.button :submit %>
+<% end %>
