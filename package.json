@@ -2,14 +2,18 @@
   "name": "smart_school",
   "private": true,
   "dependencies": {
+    "@popperjs/core": "2.9.2",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
+    "bootstrap": "5",
+    "jquery": "3.6",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^4.9.2"
+    "@webpack-cli/serve": "^1.7.0",
+    "webpack-dev-server": "~3"
   }
 }
