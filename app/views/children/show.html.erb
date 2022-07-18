@@ -44,30 +44,30 @@
     <strong>Active Pod</strong>
     <br>
     <strong>Name:</strong>
-    <%= @child.active_pods.name %>
+    <%= @child.active_pod.name %>
   </p>
   <p>
     <strong>Pending Pods</strong>
     <br>
-    <% @child.child_pods.where(status: "pending").each do |pn| %>
+    <% @child.pending_pods.each do |pending_pod| %>
       <strong>Name:</strong>
-      <%= pn.pod.name %><br>
+      <%= pending_pod.name %><br>
     <% end %><br>
   </p>
   <p>
     <strong>Rejected Pods</strong>
     <br>
-    <% @child.child_pods.where(status: "rejected").each do |rj| %>
+    <% @child.rejected_pods.each do |rejected_pod| %>
       <strong>Name:</strong>
-      <%= rj.pod.name %><br>
+      <%= rj.name %><br>
     <% end %><br>
   </p>
   <p>
     <strong>Inactive Pods</strong>
     <br>
-    <% @child.child_pods.where(status: "inactive").each do |ina| %>
+    <% @child.inactive_pods.each do |inactive_pod| %>
       <strong>Name:</strong>
-      <%= ina.pod.name %><br>
+      <%= inactive_pod.name %><br>
     <% end %><br>
   </p>
 
