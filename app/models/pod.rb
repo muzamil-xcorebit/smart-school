@@ -11,8 +11,13 @@ class Pod < ApplicationRecord
   validates :name, :phone_number, presence: true
   validates :phone_number, uniqueness: true
 
+  before_validation do |pod|
+    pod.grades.reject!(&:blank?) if pod.grades
+  end
+
   enum status: { pending: 1,
                  active: 2,
                  rejected: 3,
                  inactive: 4 }
+
 end

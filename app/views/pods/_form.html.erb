@@ -8,6 +8,9 @@
     <%= form.label :Phone_Number%><br>
     <%= form.text_field :phone_number %>
   </div>
+  <div>
+    <%= form.label :Grades%><br>
+    <%= form.select :grades, pod.grade , { prompt: "Please select" }, { multiple: true } %>
   <br>
 
   <%= render 'address/form' , form: form  %>

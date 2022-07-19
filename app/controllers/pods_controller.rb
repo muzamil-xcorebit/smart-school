@@ -46,7 +46,7 @@ class PodsController < ApplicationController
   end
 
   def pod_params
-    params.require(:pod).permit(:name, :phone_number, picture_attributes: [:id, :image],
+    params.require(:pod).permit(:name, :phone_number, grades: [], picture_attributes: [:id, :image],
       address_attributes:[:id, :street, :city, :state, :zipcode, :country])
   end
 
