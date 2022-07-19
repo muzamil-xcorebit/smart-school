@@ -10,6 +10,10 @@
       <%= t.phone_number %>
     </p>
     <p>
+    <strong>Grades:</strong>
+    <%= t.grades %>
+    </p>
+    <p>
       <strong>Picture:</strong>
       <%= image_tag(t.picture.image, size: '32x32') if t.picture.image.attached? %>
     </p>

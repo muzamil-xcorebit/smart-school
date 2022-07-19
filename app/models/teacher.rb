@@ -7,4 +7,9 @@ class Teacher < ApplicationRecord
 
   validates :name, :phone_number, presence: true
   validates :phone_number, uniqueness: true
+
+  before_validation do |teacher|
+    teacher.grades.reject!(&:blank?) if teacher.grades
+  end
+
 end

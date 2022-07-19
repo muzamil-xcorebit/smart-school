@@ -10,6 +10,11 @@
   </p>
 
   <p>
+    <strong>Grades:</strong>
+    <%= @child.grades %>
+  </p>
+
+  <p>
     <strong>Picture:</strong> <br>
     <%= image_tag(@child.picture.image, size: '200x200')  if @child.picture.image.attached?  %>
   </p>
@@ -59,7 +64,7 @@
     <br>
     <% @child.rejected_pods.each do |rejected_pod| %>
       <strong>Name:</strong>
-      <%= rj.name %><br>
+      <%= rejected_pod.name %><br>
     <% end %><br>
   </p>
   <p>

@@ -15,6 +15,11 @@
   </p>
 
   <p>
+    <strong>Grades:</strong>
+    <%= child.grades %>
+  </p>
+
+  <p>
     <strong>Picture:</strong>
     <%= image_tag(child.picture.image, size: '32x32') if child.picture.image.attached? %>
   </p>
