@@ -3,7 +3,7 @@
     <%# This removes any error messages that were previously generated. %>
     document.querySelector('#error_explanation') ? document.querySelector('#error_explanation').remove() : null ;
     <%# This selects the `<form>` in and dynamically injects the `app/views/shared/_validation-messages.html.erb` partial. %>
-    document.querySelector('#reviews-form').insertAdjacentHTML('afterbegin', '<%= escape_javascript(render "shared/validation-messages", object: @review) %>');
+    document.querySelector('#reviews').insertAdjacentHTML('afterbegin', '<%= escape_javascript(render "shared/validation-messages", object: @review) %>');
 <% else %>
     <%# This removes any error messages that were previously generated. %>
     document.querySelector('#error_explanation') ? document.querySelector('#error_explanation').remove() : null ;
