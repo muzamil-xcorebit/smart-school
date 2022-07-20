@@ -57,11 +57,20 @@
   <%= link_to "Back to pods", pods_path %>
   <%= button_to "Destroy this pod", @pod, method: :delete %>
 </div>
+ <br>
 
-<div>
-  <h1>Reviews</h1>
-  <%= render @pod.reviews %>
-  <div>
-    <%= link_to "Add Review", new_pod_review_path(@pod)%>
-  </div>
+
+ <div>
+    <h1>Reviews</h1>
+    <div id='reviews'>
+      <%= render @pod.reviews %>
+    </div>
+ </div>
+
+
+<div >
+  <h3>
+   Add Reviews
+ </h3>
+ <%= render 'reviews/form'%>
 </div>

@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :find_pod
   before_action :find_review, only: [:edit, :update, :destroy]
+
   def new
     @review = Review.new
   end
@@ -10,11 +11,14 @@ class ReviewsController < ApplicationController
     @review.pod_id = @pod.id
     @review.parent_id = current_parent.id
 
+    respond_to do |format|
+
     if @review.save
-      redirect_to pod_path(@pod)
+      format.js
     else
-      render 'new'
+      format.js
     end
+   end
   end
 
   def edit
@@ -30,7 +34,11 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to pod_path(@pod)
+
+    respond_to do |format|
+      format.html { redirect_to pod_path(@pod) }
+      format.js
+  end
   end
 
   private

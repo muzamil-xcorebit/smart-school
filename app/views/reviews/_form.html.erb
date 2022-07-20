@@ -1,4 +1,4 @@
-<%= form_for([@pod, @pod.reviews.build]) do |f| %>
-  <%= f.text_field :review %>
+<%= form_for([@pod, @pod.reviews.build], remote: true) do |f| %>
+  <%= f.text_area :review %><br>
   <%= f.button :submit %>
 <% end %>
