@@ -1,9 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
+<div>
+    <%= render 'pods/search_form' %>
+    <br>
+</div>
+
 <h1>Pods</h1>
 
 <div id="pods">
-  <% @pods.active.each do |pod| %>
+  <% @pod.active.each do |pod| %>
   <p>
     <strong>Name:</strong>
     <%= pod.name %>
@@ -12,6 +17,11 @@
   <p>
     <strong>Phone Number:</strong>
     <%= pod.phone_number %>
+  </p>
+
+   <p>
+    <strong>Grade:</strong>
+    <%= pod.grades %>
   </p>
 
     <p>

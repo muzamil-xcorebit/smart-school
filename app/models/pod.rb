@@ -20,4 +20,8 @@ class Pod < ApplicationRecord
                  rejected: 3,
                  inactive: 4 }
 
+ransacker :grades do
+  Arel.sql("array_to_string(grades, ',')")
+end
+
 end

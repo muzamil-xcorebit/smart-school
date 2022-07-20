@@ -2,7 +2,8 @@ class PodsController < ApplicationController
   before_action :set_pod, only: %i[show edit update destroy]
 
   def index
-    @pods = Pod.all
+    @q = Pod.ransack(params[:q])
+    @pod = @q.result(distinct: true)
   end
 
   def new
