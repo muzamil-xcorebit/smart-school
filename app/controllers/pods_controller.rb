@@ -2,8 +2,11 @@ class PodsController < ApplicationController
   before_action :set_pod, only: %i[show edit update destroy]
 
   def index
-    @q = Pod.ransack(params[:q])
-    @pod = @q.result(distinct: true)
+   @pods = Pod.all
+    if params[:search]
+      @search_term = params[:search]
+      @pods= @pods.search_by(@search_term)
+    end
   end
 
   def new

@@ -20,8 +20,11 @@ class Pod < ApplicationRecord
                  rejected: 3,
                  inactive: 4 }
 
-ransacker :grades do
-  Arel.sql("array_to_string(grades, ',')")
-end
+  def self.search_by(search_term)
+    joins(:address).where("addresses.street LIKE :search_term OR addresses.city LIKE :search_term
+      OR addresses.state LIKE :search_term OR addresses.zipcode LIKE :search_term
+      OR addresses.country LIKE :search_term OR name LIKE :search_term
+      OR array_to_string(grades, ',') LIKE :search_term", search_term: "%#{ search_term }%")
+  end
 
 end
