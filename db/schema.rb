@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_19_063228) do
+ActiveRecord::Schema.define(version: 2022_07_25_125530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,6 +148,8 @@ ActiveRecord::Schema.define(version: 2022_07_19_063228) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "grades", default: [], array: true
+    t.string "education"
+    t.text "bio"
     t.index ["pod_id"], name: "index_teachers_on_pod_id"
   end
 

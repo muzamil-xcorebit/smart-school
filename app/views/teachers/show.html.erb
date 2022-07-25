@@ -1,38 +1,43 @@
-<p>
-  <strong>Name:</strong>
-  <%= @teacher.name %>
-</p>
-<p>
-  <strong>Phone Number:</strong>
-  <%= @teacher.phone_number %>
-</p>
-<p>
-    <strong>Grades:</strong>
-    <%= @pod.grades %>
-</p>
-<p>
-  Address:
-</p>
-<p>
-  <strong>Street:</strong>
-  <%= @teacher.address.street %>
-</p>
-<p>
-  <strong>City:</strong>
-  <%= @teacher.address.city %>
-</p>
-<p>
-  <strong>State:</strong>
-  <%= @teacher.address.state %>
-</p>
-<p>
-  <strong>Zipcode:</strong>
-  <%= @teacher.address.zipcode %>
-</p>
-<p>
-  <strong>Country:</strong>
-  <%= @teacher.address.country %>
-</p>
-<strong>Picture:</strong> <br>
-<%= image_tag(@teacher.picture.image, size: '200x200')  if @teacher.picture.image.attached?  %>
-</p>
+<div class="super_container">
+
+  <div class="course">
+    <div class="container">
+
+          <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+          <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+          <div class="container portfolio ">
+
+            <div class="bio-info ">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="bio-image">
+                        <div><%= image_tag(@teacher.picture.image, size: '239x285')  if @teacher.picture.image.attached?  %></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bio-content">
+                    <h1><%= @teacher.name %></h1>
+                    <div>Education: <%= @teacher.education %></div><br>
+                    <div></i><span>Phone number: <%= @teacher.phone_number %></span></div><br>
+                    <div><span>Grades: <%= @teacher.grades.join(', ')  %></span></div><br>
+                    <div></i><span>Address: <%= @teacher.address.street %>, <%= @teacher.address.city %>, <%= @teacher.address.state %>, <%= @teacher.address.zipcode %>, <%= @teacher.address.country %></span></div>
+                    <div>
+                      <br>
+                      <br>
+                      <%= @teacher.bio %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  </div>
+</div>
+
+</div>

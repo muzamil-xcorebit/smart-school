@@ -1,11 +1,12 @@
 ActiveAdmin.register Teacher do
 
-permit_params :name, :phone_number, :pod_id, grades: [], picture_attributes: [:id, :image], address_attributes: [:id, :street, :city, :state, :zipcode, :country]
+permit_params :name, :phone_number, :pod_id, :education, :bio, grades: [], picture_attributes: [:id, :image], address_attributes: [:id, :street, :city, :state, :zipcode, :country]
 
   form do |f|
     f.inputs 'teacher' do
       f.input :name
       f.input :phone_number
+      f.input :education
       f.select :grades, ApplicationRecord::Grade, { prompt: "Please select" }, { multiple: true }
       f.input :pod_id, as: :select, collection: Pod.select(:id, :name)
       f.has_many :picture, heading: 'Picture',
@@ -20,6 +21,7 @@ permit_params :name, :phone_number, :pod_id, grades: [], picture_attributes: [:i
       ad.input :zipcode
       ad.input :country, as: :string
       end
+      f.input :bio
 end
   f.actions
 end
@@ -53,6 +55,8 @@ end
       column :name
       column :phone_number
       column :grades
+      column :education
+      column :bio
       column "Street" do |teacher|
           teacher.address.street
       end
