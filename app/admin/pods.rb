@@ -1,11 +1,13 @@
 ActiveAdmin.register Pod do
 
-permit_params :name, :phone_number, :status, picture_attributes: [:id, :image], address_attributes: [:id, :street, :city, :state, :zipcode, :country]
+permit_params :name, :phone_number, :status, grades: [], picture_attributes: [:id, :image], address_attributes: [:id, :street, :city, :state, :zipcode, :country]
 
 form do |f|
     f.inputs 'pod' do
       f.input :name
       f.input :phone_number
+      f.select :grades, ApplicationRecord::Grade, { prompt: "Please select" }, { multiple: true }
+      f.input :status
       f.has_many :picture, heading: 'Picture',
                               allow_destroy: true do |a|
       a.input :image, as: :file
@@ -27,6 +29,7 @@ show do
       table_for pod do
       column :name
       column :phone_number
+      column :grades
       column "Street" do |pod|
           pod.address.street
       end
