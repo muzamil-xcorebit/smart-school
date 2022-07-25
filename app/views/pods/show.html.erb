@@ -1,76 +1,86 @@
-<p style="color: green"><%= notice %></p>
+<div class="super_container">
 
-  <p>
-    <strong>Name:</strong>
-    <%= @pod.name %>
-  </p>
+  <div class="course">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="course_container">
+            <div class="course_title">
+            <%= @pod.name %>
+            </div>
+            <div class="course_image"><%= image_tag(@pod.picture.image)  if @pod.picture.image.attached?  %></div>
+          </div>
 
-  <p>
-    <strong>Phone Number:</strong>
-    <%= @pod.phone_number %>
-  </p>
-  <p>
-    <strong>Grades:</strong>
-    <%= @pod.grades %>
-  </p>
-  <p>
-    <strong>Status:</strong>
-    <%= @pod.status %>
-  </p>
-  <p>
-    Address:
-  </p>
-  <p>
-    <strong>Street:</strong>
-    <%= @pod.address.street %>
-  </p>
-    <p>
-    <strong>City:</strong>
-    <%= @pod.address.city %>
-  </p>
-    <p>
-    <strong>State:</strong>
-    <%= @pod.address.state %>
-  </p>
-    <p>
-    <strong>Zipcode:</strong>
-    <%= @pod.address.zipcode %>
-  </p>
-    <p>
-    <strong>Country:</strong>
-    <%= @pod.address.country %>
-  </p>
-    <strong>Picture:</strong> <br>
-    <%= image_tag(@pod.picture.image, size: '200x200')  if @pod.picture.image.attached?  %>
-  </p>
+          <div>
+            <br>
+            <div class="tab_panel_title">Students</div>
+            <br>
+            <% @pod.child_pods.where(status: "active").each do |ac| %>
+              <li><%= link_to ac.child.name, ac.child %></li>
+              <br>
+            <% end %>
+          </div>
 
-    <strong>Students</strong><br>
-    <br>
-  <% @pod.child_pods.where(status: "active").each do |ac| %>
-  <strong>Name:</strong>
-  <%= ac.child.name %><br>
-  <% end %><br>
+          <div>
+            <br>
+            <%= link_to "Apply" ,new_child_pod_path(id: @pod.id) , class: "btn btn-primary" %>
+          </div>
 
-<%= link_to "Apply" ,new_child_pod_path(id: @pod.id)  %>
-<div>
-  <%= link_to "Edit this pod", edit_pod_path(@pod) %> |
-  <%= link_to "Back to pods", pods_path %>
-  <%= button_to "Destroy this pod", @pod, method: :delete %>
-</div>
- <br>
+          <div>
+            <br>
+            <div class="tab_panel_title">Reviews</div>
+            <div id='reviews'>
+              <br>
+              <%= render @pod.reviews %>
+            </div>
+          </div>
 
+            <div>
+              <br>
+              <%= render 'reviews/form' %>
+            </div>
+        </div>
 
- <div>
-    <h1>Reviews</h1>
-    <div id='reviews'>
-      <%= render @pod.reviews %>
+        <div class="col-lg-4">
+          <div>
+            <%= link_to "Edit", edit_pod_path(@pod) , class: "btn btn-primary" %>
+            <%= link_to "Back", pods_path , class: "btn btn-primary" %>
+            <%= link_to "Delete", @pod, method: :delete , class: "btn btn-primary" %>
+          </div>
+          <div class="sidebar">
+            <div class="sidebar_section">
+              <div class="sidebar_section_title">Pod information</div>
+              <div class="sidebar_feature">
+                <div class="feature_list">
+
+                    <div class="feature_title"></i><span>Phone number: <%= @pod.phone_number %></span></div>
+                    <div class="feature_title"><span>Grades: <%= @pod.grades.join(', ')  %></span></div>
+                    <div class="feature_title"><span>Status: <%= @pod.status %></span></div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar_section">
+              <div class="sidebar_section_title">Address</div>
+              <div class="sidebar_feature">
+                <div class="feature_list">
+
+                    <div class="feature_title"></i><span>Street: <%= @pod.address.street %></span></div>
+                    <div class="feature_title"><span>City: <%= @pod.address.city %></span></div>
+                    <div class="feature_title"><span>State: <%= @pod.address.state %></span></div>
+                    <div class="feature_title"><span>Zipcode: <%= @pod.address.zipcode %></span></div>
+                    <div class="feature_title"><span>Country: <%= @pod.address.country %></span></div>
+
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
- </div>
+  </div>
 
 
-<div >
-  <h3>
-   Add Reviews
- </h3>
- <%= render 'reviews/form'%>
 </div>

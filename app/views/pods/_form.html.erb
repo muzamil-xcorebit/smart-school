@@ -11,6 +11,7 @@
   <div>
     <%= form.label :Grades%><br>
     <%= form.select :grades, ApplicationRecord::Grade , { prompt: "Please select" }, { multiple: true } %>
+  </div>
   <br>
 
   <%= render 'address/form' , form: form  %>

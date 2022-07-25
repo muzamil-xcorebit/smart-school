@@ -7,13 +7,18 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-  <%= render 'layouts/navbar'%>
-
+  <%= render 'layouts/navbar' %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <div class="super_container">
     <%= yield %>
+  </div>
+  <%= render 'layouts/footer'%>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   </body>
 </html>

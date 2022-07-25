@@ -1,20 +1,30 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-
-      <%= link_to "Pods", root_path, class: 'navbar-brand' %>
-
+ <header class="header">
+    <div class="header_container">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="header_content d-flex flex-row align-items-center justify-content-start">
+              <div class="logo_container">
+                <a href="#">
+                  <div class="logo_text"><%= link_to "Smart School", root_path, class: 'navbar-brand' %></div>
+                </a>
+              </div>
+              <nav class="main_nav_contaner ms-auto">
+                <ul class="main_nav" style="list-style: none;">
+                  <% if !current_parent %>
+                    <li><%= link_to "Sign Up", new_parent_registration_path %></li>
+                    <li><%= link_to "Sign in", new_parent_session_path %></li>
+                  <% else %>
+                    <li><%= link_to "Teachers", teachers_path %></li>
+                    <li><%= link_to "Add Children", new_parent_child_path(current_parent.id) %></li>
+                    <li><%= link_to "Edit My Profile", edit_parent_registration_path %></li>
+                    <li><%= link_to "Sign Out", destroy_parent_session_path, method: :delete %></li>
+                  <% end %>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <ul class="nav navbar-nav navbar-right">
-     <% if !current_parent %>
-      <li><%= link_to "Sign Up", new_parent_registration_path %></li>
-      <li><%= link_to "Sign in", new_parent_session_path %></li>
-      <% else %>
-        <li><%= link_to "Teachers", teachers_path %></li>
-        <li><%= link_to "Add Children", new_parent_child_path(current_parent.id) %></li>
-        <li><%= link_to "Edit My Profile", edit_parent_registration_path %></li>
-        <li><%= link_to "Sign Out", destroy_parent_session_path, method: :delete %></li>
-        <% end %>
-    </ul>
-  </div>
-</nav>
+ </header>

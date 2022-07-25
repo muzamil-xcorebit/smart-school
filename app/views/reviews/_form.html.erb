@@ -1,4 +1,5 @@
 <%= form_for([@pod, @pod.reviews.build], remote: true) do |f| %>
-  <%= f.text_area :review , required: true %><br>
-  <%= f.button :submit %>
+  <br>
+  <%= f.text_area :review , required: true, placeholder: "Review" %><br>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
