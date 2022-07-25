@@ -1,83 +1,89 @@
-<p style="color: green"><%= notice %></p>
-  <p>
-    <strong>Name:</strong>
-    <%= @child.name %>
-  </p>
+<div class="super_container">
 
-  <p>
-    <strong>Age:</strong>
-    <%= @child.age %>
-  </p>
+  <div class="course">
+    <div class="container">
 
-  <p>
-    <strong>Grades:</strong>
-    <%= @child.grades %>
-  </p>
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <p>
-    <strong>Picture:</strong> <br>
-    <%= image_tag(@child.picture.image, size: '200x200')  if @child.picture.image.attached?  %>
-  </p>
-  Address:
-  <p>
-    <strong>Street:</strong>
-    <%= @child.address.street %>
-  </p>
-    <p>
-    <strong>City:</strong>
-    <%= @child.address.city %>
-  </p>
-    <p>
-    <strong>State:</strong>
-    <%= @child.address.state %>
-  </p>
-    <p>
-    <strong>Zipcode:</strong>
-    <%= @child.address.zipcode %>
-  </p>
-    <p>
-    <strong>Country:</strong>
-    <%= @child.address.country %>
-  </p>
+      <div class="container portfolio ">
 
-<h3>
-  Child Pods History
-</h3>
-<br>
+        <div class="bio-info ">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="bio-image">
+                    <div><%= image_tag(@child.picture.image, size: '239x285')  if @child.picture.image.attached?  %></div>
 
-  <p>
-    <strong>Active Pod</strong>
-    <br>
-    <strong>Name:</strong>
-    <%= @child.active_pod.name %>
-  </p>
-  <p>
-    <strong>Pending Pods</strong>
-    <br>
-    <% @child.pending_pods.each do |pending_pod| %>
-      <strong>Name:</strong>
-      <%= pending_pod.name %><br>
-    <% end %><br>
-  </p>
-  <p>
-    <strong>Rejected Pods</strong>
-    <br>
-    <% @child.rejected_pods.each do |rejected_pod| %>
-      <strong>Name:</strong>
-      <%= rejected_pod.name %><br>
-    <% end %><br>
-  </p>
-  <p>
-    <strong>Inactive Pods</strong>
-    <br>
-    <% @child.inactive_pods.each do |inactive_pod| %>
-      <strong>Name:</strong>
-      <%= inactive_pod.name %><br>
-    <% end %><br>
-  </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="bio-content">
+                <h1><%= @child.name %></h1><br>
+                <div><span>Age: <%= @child.age  %></span></div><br>
+                <div><span>Grades: <%= @child.grades  %></span></div><br>
+                <div></i><span>Address: <%= @child.address.street %>, <%= @child.address.city %>, <%= @child.address.state %>, <%= @child.address.zipcode %>, <%= @child.address.country %></span></div>
+                <div>
+                  <br>
+                  <%= link_to "Edit", edit_child_path, class: "btn btn-primary" %>
+                  <%= link_to "Back", parent_children_path([current_parent, @child]), class: "btn btn-primary" %>
+                  <%= link_to "Delete", [@parent, @child], method: :delete, class: "btn btn-primary"%>
+                </div>
+                <div>
+                  <br>
+                  <br>
+                  <h5>pod's history</h5>
+                    <br>
+                    <div>
+                      <strong>Active Pod</strong>
+                      <br>
+                      <% if @child.active_pod %>
+                        <li><%= @child.active_pod.name %></li>
+                      <% end %><br>
+                    </div>
+                    <br>
 
-<div>
-  <%= link_to "Edit this child", edit_child_path %> |
-  <%= link_to "Back to children", parent_children_path([current_parent, @child]) %>
-  <%= button_to "Destroy this child", [@parent, @child], method: :delete %>
+                    <div>
+                      <strong>Pending Pods</strong>
+                      <br>
+                      <% @child.pending_pods.each do |pending_pod| %>
+                        <strong>Name:</strong>
+                        <%= pending_pod.name %><br>
+                      <% end %><br>
+                    </div>
+                    <br>
+
+                    <div>
+                      <strong>Rejected Pods</strong>
+                      <br>
+                      <% @child.rejected_pods.each do |rejected_pod| %>
+                        <strong>Name:</strong>
+                        <%= rejected_pod.name %><br>
+                      <% end %><br>
+                    </div>
+                    <br>
+
+                    <div>
+                      <strong>Inactive Pods</strong>
+                      <br>
+                      <% @child.inactive_pods.each do |inactive_pod| %>
+                        <strong>Name:</strong>
+                        <%= inactive_pod.name %><br>
+                      <% end %><br>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

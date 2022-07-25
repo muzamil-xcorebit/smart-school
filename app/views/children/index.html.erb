@@ -1,33 +1,20 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Children</h1>
-
-<div id="children">
-  <% @children.each do |child| %>
-      <p>
-    <strong>Name:</strong>
-    <%= child.name %>
-  </p>
-
-  <p>
-    <strong>Age:</strong>
-    <%= child.age %>
-  </p>
-
-  <p>
-    <strong>Grades:</strong>
-    <%= child.grades %>
-  </p>
-
-  <p>
-    <strong>Picture:</strong>
-    <%= image_tag(child.picture.image, size: '32x32') if child.picture.image.attached? %>
-  </p>
-
-    <p>
-      <%= link_to "Show this child", child %>
-    </p>
-  <% end %>
+<div class="courses">
+  <div class="container">
+    <div class="row courses_row">
+      <% @children.each do |child| %>
+        <div class="col-lg-4 course_col ">
+          <a href="/children/<%= child.id %>">
+            <div class="shadow p-3 mb-5 bg-white rounded">
+              <div class="course_image"><%= image_tag(child.picture.image) if child.picture.image.attached? %></div>
+              <div class="course_body">
+                <h3 class="course_title"><%= child.name %></h3>
+                <div class="course_teacher">Age: <%= child.age %></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<%= link_to "New Child", new_parent_child_path %>
